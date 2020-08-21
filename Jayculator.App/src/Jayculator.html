@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Jayculator</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    </head>
+    <body >
+
+        <div ng-app="jayculatorApp" ng-controller="jayculatorController as jvm" ng-init="jvm.init()">
+            <p>
+                <div class="errorMsg">{{jvm.webApiError}}</div>
+            </p>
+            <section>
+                <input type="text" name="smartDisplay" class="smartDisplay" ng-model="jvm.smartDisplay" disabled>
+                <br/>
+                <input class="display" type="text" name="display" ng-model="jvm.display" disabled>
+            </section>
+            <section>
+                <div ng-repeat="bSet in jvm.buttonSets">
+                    <button class="tooltip" ng-repeat="btn in bSet" ng-click="jvm.jayculate(btn)" ng-disabled="jvm.disableButtons">
+                        {{btn}}
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <script src="js/jayculatorApp.js"></script>
+        <script src="js/jayculatorController.js"></script>
+
+    </body>
+</html>
